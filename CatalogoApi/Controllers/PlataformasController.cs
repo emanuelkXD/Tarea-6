@@ -74,6 +74,12 @@ public class PlataformasController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = plataforma.Id }, plataforma);
     }
 
+    [HttpPost]
+    public IActionResult CreateDuplicado([FromBody] string nombre)
+    {
+        return Ok(new { mensaje = "Método duplicado para generar colisión de rutas", nombre });
+    }
+
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Plataforma plataforma)
     {
